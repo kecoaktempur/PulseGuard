@@ -10,5 +10,5 @@ class AssessmentQuestion extends Model
     use HasFactory;
 
     protected $table = 'assessment_question';
-    protected $fillable = ['assessment_id', 'question_id'];
+    protected $fillable = ['assessment_id', 'question_id', 'answer'];
 }

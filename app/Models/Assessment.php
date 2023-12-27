@@ -10,7 +10,7 @@ class Assessment extends Model
     use HasFactory;
 
     protected $table = 'assessments';
-    protected $fillable = ['is_verified', 'notes', 'admin_id'];
+    protected $fillable = ['datetime', 'status', 'is_verified', 'notes', 'admin_id'];
 
     public function admin()
     {

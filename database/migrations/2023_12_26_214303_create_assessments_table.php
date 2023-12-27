@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('datetime');
+            $table->string('status');
             $table->boolean('is_verified');
             $table->longText('notes')->nullable();
             $table->foreignId('admin_id')->references('id')->on('admins')->onDelete('cascade')->constrained()->nullable();

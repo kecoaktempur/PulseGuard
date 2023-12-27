@@ -1,0 +1,56 @@
+.filter-effect {
+    transition: filter 0.3s ease;
+    /* Add transition for a smooth effect */
+}
+
+.filter-effect:hover {
+    filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(128deg) brightness(100%) contrast(101%);
+}
+
+aside div ul li a svg.active {
+    border-bottom: 2px solid black;
+}
+
+.custom-button {
+    background-color: #5A7DFA;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    /* You can adjust the border-radius as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Add a smooth transition effect */
+}
+
+.custom-button:hover {
+    background-color: #3852B4;
+    /* Change the color for hover state */
+}
+
+.custom-button2 {
+    background-color: #FA5A5A;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    /* You can adjust the border-radius as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Add a smooth transition effect */
+}
+
+.custom-button2:hover {
+    background-color: #C64747;
+    /* Change the color for hover state */
+}
+
+.custom-height {
+    height: 80vh;
+}
+
+@media (max-width: 640px) and (min-width: 767px) {
+    .custom-height {
+        height: 120vh;
+    }
+}

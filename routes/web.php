@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/dashboard', [SessionController::class, 'dashboard']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
+
+Route::get('/doctor', [DoctorController::class, 'index']);
+Route::get('/patient', [PatientController::class, 'index']);
+Route::get('/assessment', [AssessmentController::class, 'index']);
+Route::get('/question', [QuestionController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/profile/edit', [ProfileController::class, 'edit']);

@@ -28,6 +28,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/login', function () {
+    return view('login-regist/login');
+});
+
+Route::get('/register', function () {
+    return view('login-regist/register');
+});
+
 Route::get('/doctor', [DoctorController::class, 'index']);
 Route::get('/patient', [PatientController::class, 'index']);
 Route::get('/assessment', [AssessmentController::class, 'index']);

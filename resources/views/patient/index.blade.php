@@ -15,6 +15,9 @@
                                 Fullname
                             </th>
                             <th scope="col" class="px-6 py-3 font-extrabold">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3 font-extrabold">
                                 Address
                             </th>
                             <th scope="col" class="px-6 py-3 font-extrabold">
@@ -28,29 +31,41 @@
                             </th>
                         </tr>
                     </thead>
+                    @php
+                    $count = ($patients->currentPage() - 1) * $patients->perPage() + 1;
+                    @endphp
+
                     <tbody>
-                        <tr>
+                        @foreach($patients as $patient)
+
+                        @php
+                        $isOdd = $loop->odd;
+                        @endphp
+
+                        <tr class="{{ $isOdd ? 'bg-gray-100' : '' }}">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                1
+                                {{ $count++ }}
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Apple MacBook Pro 17"
+                                {{ $patient->firstname }} {{ $patient->lastname }}
                             </th>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Silver
+                                {{ $patient->email }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Laptop
+                                {{ $patient->address }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                $2999
+                                {{ $patient->phone }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                <button class="custom-button">
-                                    Details
-                                </button>
+                                {{ ucfirst($patient->gender) }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                {{ $patient->age }}
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

@@ -2,7 +2,7 @@
 @section('content')
 <div class="p-4 sm:ml-20">
     <div class="p-4">
-        <div class="flex flex-col rounded-2xl p-5 h-screen relative" style="background-color: white;">
+        <div class="flex flex-col rounded-2xl p-5 max-md:h-screen h-[92vh] relative" style="background-color: white;">
             <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Assessment Questions</h1>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
@@ -19,26 +19,37 @@
                             </th>
                         </tr>
                     </thead>
+
+                    @php
+                    $count = ($questions->currentPage() - 1) * $questions->perPage() + 1;
+                    @endphp
                     <tbody>
-                        <tr>
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                1
+                        @foreach($questions as $question)
+
+                        @php
+                        $isOdd = $loop->odd;
+                        @endphp
+
+                        <tr class="{{ $isOdd ? 'bg-gray-100' : '' }}">
+                            <th scope="row" class="px-6 py-3 font-medium text-gray-700 whitespace-nowrap">
+                                {{ $count++ }}
                             </th>
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-700">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic quas quisquam harum eos aliquam atque nesciunt et ullam repellendus praesentium. Eligendi minus ea praesentium accusantium aliquid explicabo officia consequuntur. Eaque et incidunt numquam, consequatur itaque commodi tenetur, ut reiciendis omnis perspiciatis quaerat expedita hic sapiente voluptatem aperiam veniam quibusdam similique.
+                            <th scope="row" class="px-6 py-3 font-medium text-gray-700">
+                                {{ $question->description }}
                             </th>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-6 py-3 font-medium text-gray-700 whitespace-nowrap">
                                 <button class="custom-button">
                                     Details
                                 </button>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="absolute bottom-0 right-0 mb-4 mr-4">
                 <div class="inline-flex rounded-md">
-                    <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
+                    <!-- <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                         </svg>
@@ -47,7 +58,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
-                    </button>
+                    </button> -->
+                    {{ $questions->links() }}
                 </div>
             </div>
         </div>

@@ -26,6 +26,15 @@
                 </div>
             </div>
 
+            @php
+                $totalPatient = $patients->count();
+                $male = $patients->where('gender', 'male')->count();
+                $female = $patients->where('gender', 'female')->count();
+                $healthy = $assessments->where('status', 'Healthy')->count();
+                $unhealthy = $assessments->where('status', 'Unhealthy')->count();
+                $unidentified = $assessments->where('status', null)->count();
+            @endphp
+
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
                 <div class="flex items-center justify-center h-40 rounded-2xl grid-cols-2" style="background-color: #F3E8FF;">
                     <div class="flex items-center justify-center h-40 rounded m-5">
@@ -36,7 +45,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #151D48;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #151D48;">{{ $totalPatient }}</h1>
                             <p class="text-base text-gray-500 font-normal">Total Patient</p>
                         </div>
                     </div>
@@ -50,7 +59,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $male }}</h1>
                             <p class="text-base text-gray-500 font-normal">Male</p>
                         </div>
                     </div>
@@ -64,7 +73,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $female }}</h1>
                             <p class="text-base text-gray-500 font-normal">Female</p>
                         </div>
                     </div>
@@ -78,7 +87,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $healthy }}</h1>
                             <p class="text-base text-gray-500 font-normal">Healthy</p>
                         </div>
                     </div>
@@ -92,7 +101,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $unhealthy }}</h1>
                             <p class="text-base text-gray-500 font-normal">Unhealthy</p>
                         </div>
                     </div>
@@ -106,7 +115,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $unidentified }}</h1>
                             <p class="text-base text-gray-500 font-normal">Unidentified</p>
                         </div>
                     </div>
@@ -136,6 +145,15 @@
                 </div>
             </div>
 
+            @php
+                $totalPatient = $patients->count();
+                $male = $patients->where('gender', 'male')->count();
+                $female = $patients->where('gender', 'female')->count();
+                $healthy = $assessments->where('status', 'Healthy')->count();
+                $unhealthy = $assessments->where('status', 'Unhealthy')->count();
+                $unidentified = $assessments->where('status', null)->count();
+            @endphp
+
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
                 <div class="flex items-center justify-center h-40 rounded-2xl grid-cols-2" style="background-color: #F3E8FF;">
                     <div class="flex items-center justify-center h-40 rounded m-5">
@@ -146,7 +164,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #151D48;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #151D48;">{{ $totalPatient }}</h1>
                             <p class="text-base text-gray-500 font-normal">Total Patient</p>
                         </div>
                     </div>
@@ -160,7 +178,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $male }}</h1>
                             <p class="text-base text-gray-500 font-normal">Male</p>
                         </div>
                     </div>
@@ -174,7 +192,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $female }}</h1>
                             <p class="text-base text-gray-500 font-normal">Female</p>
                         </div>
                     </div>
@@ -188,7 +206,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $healthy }}</h1>
                             <p class="text-base text-gray-500 font-normal">Healthy</p>
                         </div>
                     </div>
@@ -202,7 +220,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $unhealthy }}</h1>
                             <p class="text-base text-gray-500 font-normal">Unhealthy</p>
                         </div>
                     </div>
@@ -216,7 +234,7 @@
 
                     <div class="flex items-center justify-center h-40 rounded m-5">
                         <div class="py-2">
-                            <h1 class="text-5xl font-bold" style="color: #070A52;">32</h1>
+                            <h1 class="text-5xl font-bold" style="color: #070A52;">{{ $unidentified }}</h1>
                             <p class="text-base text-gray-500 font-normal">Unidentified</p>
                         </div>
                     </div>
@@ -248,11 +266,36 @@
             </div>
 
             <div class="grid grid-cols-2 max-sm:grid-cols-2 gap-4">
-                <div class="flex items-center justify-center h-64 rounded-2xl p-5" style="background-color: #DCFCE7; display: flex; flex-direction: column; text-align: center;">
-                    <img class="mx-auto w-32 h-32 p-1 rounded-full mb-4" src="{{ asset('img/Icon3.svg') }}" alt="Bordered avatar">
+                <div class="flex items-center justify-center h-64 rounded-2xl p-5" @if ($lastAssessment) @if ($lastAssessment->status == 'Healthy')
+                    style="background-color: #DCFCE7;
+                    @elseif ($lastAssessment->status == 'Unhealthy')
+                    style="background-color: #FFE2E5;
+                    @else
+                    style="background-color: #FFF4DE;
+                    @endif
+                    @else
+                    style="background-color: #FFF4DE;
+                    @endif
+                    display: flex; flex-direction: column; text-align: center;">
+                    <img class="mx-auto w-32 h-32 p-1 rounded-full mb-4" @if ($lastAssessment) @if ($lastAssessment->status == 'Healthy')
+                    src="{{ asset('img/Icon3.svg') }}"
+                    @elseif ($lastAssessment->status == 'Unhealthy')
+                    src="{{ asset('img/Icon4.svg') }}"
+                    @else
+                    src="{{ asset('img/Icon5.svg') }}"
+                    @endif
+                    @else
+                    src="{{ asset('img/Icon5.svg') }}"
+                    @endif
+                    alt="Bordered avatar">
                     <h1 class="text-2xl font-bold" style="color: #151D48;">Last Assessment</h1>
-                    <p class="text-base text-gray-500 font-semibold">Healthy</p>
-                    <p class="text-base text-gray-500 font-semibold">28 December 2023</p>
+                    @if ($lastAssessment)
+                    <p class="text-base text-gray-500 font-semibold">{{ $lastAssessment->status ?? 'Unidentified' }}</p>
+                    <p class="text-base text-gray-500 font-semibold">{{ \Carbon\Carbon::parse($lastAssessment->datetime)->format('j F Y') }}</p>
+                    @else
+                    <p class="text-base text-gray-500 font-semibold">Unidentified</p>
+                    <p class="text-base text-gray-500 font-semibold">Never</p>
+                    @endif
                 </div>
 
 
@@ -261,9 +304,12 @@
                         <div class="py-2">
                             <h1 class="text-2xl font-bold mb-5" style="color: #151D48;">Hello Patient,
                                 How are you feeling today?</h1>
-                            <button class="custom-button">
-                                Take Assesment
-                            </button>
+                            <form action="{{ route('assessment.start') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                    Take New Assessment
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

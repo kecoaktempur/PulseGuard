@@ -31,10 +31,19 @@ Route::post('/register', [AuthController::class, 'create'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor')->middleware('auth');;
-Route::get('/patient', [PatientController::class, 'index'])->name('patient')->middleware('auth');;
-Route::get('/assessment', [AssessmentController::class, 'index'])->name('assessment')->middleware('auth');;
-Route::get('/assessment/question', [AssessmentController::class, 'question'])->name('assessment.assesment_question')->middleware('auth');;
-Route::get('/question', [QuestionController::class, 'index'])->name('question')->middleware('auth');;
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');;
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');;
+Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor')->middleware('auth');
+
+Route::get('/patient', [PatientController::class, 'index'])->name('patient')->middleware('auth');
+
+Route::get('/assessment', [AssessmentController::class, 'index'])->name('assessment')->middleware('auth');
+Route::post('/assessment', [AssessmentController::class, 'start'])->name('assessment.start')->middleware('auth');
+Route::get('/assessment/question/{id}', [AssessmentController::class, 'question'])->name('assessment.question')->middleware('auth');
+Route::post('/assessment/question/{id}', [AssessmentController::class, 'answer'])->name('assessment.answer')->middleware('auth');
+Route::get('/assessment/notes', [AssessmentController::class, 'notes'])->name('assessment.notes')->middleware('auth');
+Route::post('/assessment/notes', [AssessmentController::class, 'finish'])->name('assessment.finish')->middleware('auth');
+
+Route::get('/question', [QuestionController::class, 'index'])->name('question')->middleware('auth');
+
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');

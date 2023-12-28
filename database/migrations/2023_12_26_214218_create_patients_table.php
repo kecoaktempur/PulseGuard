@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('gender');
             $table->integer('age');
-            $table->foreignId('admin_id')->references('id')->on('admins')->onDelete('cascade')->constrained()->nullable();
+            $table->unsignedBigInteger('admin_id')->nullable();
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }

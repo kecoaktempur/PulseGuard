@@ -19,11 +19,11 @@ class Appointment extends Model
 
     public function patients()
     {
-        return $this->belongsToMany(Patient::class);
+        return $this->belongsToMany(Patient::class, 'patient_appointment');
     }
 
     public function doctors()
     {
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsToMany(Doctor::class, 'appointment_doctor');
     }
 }

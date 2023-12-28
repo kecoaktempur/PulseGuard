@@ -10,7 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Doctor extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     protected $table = 'doctors';
     protected $fillable = ['email', 'password', 'firstname', 'lastname', 'address', 'phone', 'gender', 'age', 'admin_id'];
 
@@ -21,11 +21,11 @@ class Doctor extends Authenticatable
 
     public function appointments()
     {
-        return $this->belongsToMany(Appointment::class);
+        return $this->belongsToMany(Appointment::class, 'appointment_doctor');
     }
 
     public function assessments()
     {
-        return $this->belongsToMany(Assessment::class);
+        return $this->belongsToMany(Assessment::class, 'assessment_doctor');
     }
 }

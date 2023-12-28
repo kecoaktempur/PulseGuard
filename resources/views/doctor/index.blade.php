@@ -15,6 +15,9 @@
                                 Fullname
                             </th>
                             <th scope="col" class="px-6 py-3 font-extrabold">
+                                Email
+                            </th>
+                            <th scope="col" class="px-6 py-3 font-extrabold">
                                 Address
                             </th>
                             <th scope="col" class="px-6 py-3 font-extrabold">
@@ -28,35 +31,43 @@
                             </th>
                         </tr>
                     </thead>
+
+                    @php
+                        $count = ($doctors->currentPage() - 1) * $doctors->perPage() + 1;
+                    @endphp
+
                     <tbody>
+                        @foreach($doctors as $doctor)
                         <tr>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                1
+                                {{ $count++ }}
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Apple MacBook Pro 17"
+                                {{ $doctor->firstname }} {{ $doctor->lastname }}
                             </th>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Silver
+                                {{ $doctor->email }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                Laptop
+                                {{ $doctor->address }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                $2999
+                                {{ $doctor->phone }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                <button class="custom-button">
-                                    Details
-                                </button>
+                                {{ ucfirst($doctor->gender) }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                {{ $doctor->age }}
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <div class="absolute bottom-0 right-0 mb-4 mr-4">
                 <div class="inline-flex rounded-md">
-                    <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
+                    <!-- <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                         </svg>
@@ -65,7 +76,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
                         </svg>
-                    </button>
+                    </button> -->
+                    {{ $doctors->links() }}
                 </div>
             </div>
         </div>

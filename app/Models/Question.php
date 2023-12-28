@@ -10,7 +10,7 @@ class Question extends Model
     use HasFactory;
     
     protected $table = 'questions';
-    protected $fillable = ['description', 'admin_id'];
+    protected $fillable = ['description', 'type', 'admin_id'];
 
     public function admin()
     {
@@ -19,6 +19,6 @@ class Question extends Model
 
     public function assessments()
     {
-        return $this->belongsToMany(Assessment::class);
+        return $this->belongsToMany(Assessment::class, 'assessment_question');
     }
 }

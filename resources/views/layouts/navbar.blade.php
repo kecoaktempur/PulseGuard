@@ -45,6 +45,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap sm:hidden" id="textSidebarMini">Our Doctors</span>
                 </a>
             </li>
+            @if (Auth::guard('doctors')->check() || Auth::guard('admins')->check())
             <li>
                 <a href="{{ route('patient') }}" class="flex items-center p-2 text-black rounded-lg hover:bg-red-600 group" id="navLink">
                     <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-5 h-5 text-black font-bold transition duration-75 group-hover:text-white" viewBox="0 0 16 16">
@@ -55,6 +56,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap sm:hidden" id="textSidebarMini">Your Patients</span>
                 </a>
             </li>
+            @endif
             <li>
                 <a href="{{ route('assessment') }}" class="flex items-center p-2 text-black rounded-lg hover:bg-red-600 group" id="navLink">
                     <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-white" id="navIcon" viewBox="0 0 16 16">
@@ -63,6 +65,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap sm:hidden" id="textSidebarMini">Assessment History</span>
                 </a>
             </li>
+            @if (Auth::guard('doctors')->check() || Auth::guard('admins')->check())
             <li>
                 <a href="{{ route('question') }}" class="flex items-center p-2 text-black rounded-lg hover:bg-red-600 group" id="navLink">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 text-black transition duration-75 group-hover:text-white">
@@ -71,6 +74,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap sm:hidden text-black" id="textSidebarMini">Assessment Questions</span>
                 </a>
             </li>
+            @endif
             <li>
                 <a href="{{ route('profile') }}" class="flex items-center p-2 text-black rounded-lg hover:bg-red-600 group" id="navLink">
                     <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-5 h-5 text-black font-bold transition duration-75 group-hover:text-white" id="navIcon" viewBox="0 0 16 16">

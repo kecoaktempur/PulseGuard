@@ -7,6 +7,7 @@ use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('login');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'create'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor')->middleware('auth');;
 Route::get('/patient', [PatientController::class, 'index'])->name('patient')->middleware('auth');;

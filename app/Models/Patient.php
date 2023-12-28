@@ -22,11 +22,11 @@ class Patient extends Authenticatable
 
     public function appointments()
     {
-        return $this->belongsToMany(Appointment::class);
+        return $this->belongsToMany(Appointment::class, 'patient_appointment');
     }
 
     public function assessments()
     {
-        return $this->belongsToMany(Assessment::class);
+        return $this->belongsToMany(Assessment::class, 'patient_assessment');
     }
 }

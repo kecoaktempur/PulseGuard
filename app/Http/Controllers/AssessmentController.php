@@ -11,4 +11,9 @@ class AssessmentController extends Controller
     {
         return view('assessment.index');
     }
+
+    public function question()
+    {
+        return view('assessment.assesment_question');
+    }
 }

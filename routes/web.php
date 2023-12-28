@@ -20,7 +20,9 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () { return view('landing'); })->name('landing');
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('login');
@@ -32,6 +34,7 @@ Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard'
 Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor')->middleware('auth');;
 Route::get('/patient', [PatientController::class, 'index'])->name('patient')->middleware('auth');;
 Route::get('/assessment', [AssessmentController::class, 'index'])->name('assessment')->middleware('auth');;
+Route::get('/assessment/question', [AssessmentController::class, 'question'])->name('assessment.assesment_question')->middleware('auth');;
 Route::get('/question', [QuestionController::class, 'index'])->name('question')->middleware('auth');;
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');;
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');;

@@ -2,7 +2,7 @@
 @section('content')
 <div class="p-4 sm:ml-20">
     <div class="p-4">
-        <div class="flex flex-col rounded-2xl p-5 h-screen relative" style="background-color: white;">
+        <div class="flex flex-col rounded-2xl p-5 max-md:h-screen h-[92vh] relative" style="background-color: white;">
             <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Our Doctors</h1>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
@@ -33,12 +33,17 @@
                     </thead>
 
                     @php
-                        $count = ($doctors->currentPage() - 1) * $doctors->perPage() + 1;
+                    $count = ($doctors->currentPage() - 1) * $doctors->perPage() + 1;
                     @endphp
 
                     <tbody>
                         @foreach($doctors as $doctor)
-                        <tr>
+
+                        @php
+                        $isOdd = $loop->odd;
+                        @endphp
+
+                        <tr class="{{ $isOdd ? 'bg-gray-100' : '' }}">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $count++ }}
                             </th>

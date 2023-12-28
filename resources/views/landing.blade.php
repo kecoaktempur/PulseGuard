@@ -28,7 +28,7 @@
         <div class="container">
             <div id="tab-1" class="tab-item tab-border">
                 <i class="fas fa-door-open fa-3x"></i>
-                <p class="hide-sm">Cancel at any time</p>
+                <p class="hide-sm">Expert Doctor on Service</p>
             </div>
             <div id="tab-2" class="tab-item">
                 <i class="fas fa-tablet-alt fa-3x"></i>

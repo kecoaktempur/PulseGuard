@@ -3,7 +3,16 @@
 <div class="p-4 sm:ml-20">
     <div class="p-4">
         <div class="flex flex-col rounded-2xl p-5 max-md:h-screen h-[92vh] relative" style="background-color: white;">
-            <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Assessment Questions</h1>
+            <div class="flex items-center justify-between mb-5">
+                <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Assessment Questions</h1>
+                <div class="flex space-x-2">
+                    <form action="{{ route('question.edit') }}" method="GET">
+                        <button type="submit" class="flex w-full justify-center rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                            Make New Assessment
+                        </button>
+                    </form>
+                </div>
+            </div>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
                     <thead class="text-xs uppercase border-b border-gray-700" style="color: #070A52;">

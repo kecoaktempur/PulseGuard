@@ -12,4 +12,8 @@ class QuestionController extends Controller
         $questions = Question::paginate(10);
         return view('question.index', compact('questions'));
     }
+    public function edit()
+    {
+        return view('question.edit');
+    }
 }

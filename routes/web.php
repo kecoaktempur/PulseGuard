@@ -43,6 +43,7 @@ Route::get('/assessment/notes', [AssessmentController::class, 'notes'])->name('a
 Route::post('/assessment/notes', [AssessmentController::class, 'finish'])->name('assessment.finish')->middleware('auth');
 
 Route::get('/question', [QuestionController::class, 'index'])->name('question')->middleware('auth');
+Route::get('/question/edit', [QuestionController::class, 'edit'])->name('question.edit')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');

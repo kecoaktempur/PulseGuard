@@ -38,8 +38,8 @@
                                 {{ $question->description }}
                             </th>
                             <td class="px-6 py-3 font-medium text-gray-700 whitespace-nowrap">
-                                <button class="custom-button">
-                                    Details
+                                <button class="rounded-md bg-rose-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500" type="button" onclick="toggleModal('modal-id')">
+                                    Delete
                                 </button>
                             </td>
                         </tr>
@@ -47,7 +47,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="absolute bottom-0 right-0 mb-4 mr-4">
+            <div class="flex flex-col-reverse justify-end items-end bottom-0 right-0 mt-4 mb-4 mr-4">
                 <div class="inline-flex rounded-md">
                     <!-- <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">

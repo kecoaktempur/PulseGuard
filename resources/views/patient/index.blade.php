@@ -2,7 +2,7 @@
 @section('content')
 <div class="p-4 sm:ml-20">
     <div class="p-4">
-        <div class="flex flex-col rounded-2xl p-5 h-screen relative" style="background-color: white;">
+        <div class="flex flex-col rounded-2xl p-5 max-md:h-screen h-[92vh] relative" style="background-color: white;">
             <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Your Patients</h1>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">

@@ -27,12 +27,12 @@
             </div>
 
             @php
-                $totalPatient = $patients->count();
-                $male = $patients->where('gender', 'male')->count();
-                $female = $patients->where('gender', 'female')->count();
-                $healthy = $assessments->where('status', 'Healthy')->count();
-                $unhealthy = $assessments->where('status', 'Unhealthy')->count();
-                $unidentified = $assessments->where('status', null)->count();
+            $totalPatient = $patients->count();
+            $male = $patients->where('gender', 'male')->count();
+            $female = $patients->where('gender', 'female')->count();
+            $healthy = $assessments->where('status', 'Healthy')->count();
+            $unhealthy = $assessments->where('status', 'Unhealthy')->count();
+            $unidentified = $assessments->where('status', null)->count();
             @endphp
 
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
@@ -146,12 +146,12 @@
             </div>
 
             @php
-                $totalPatient = $patients->count();
-                $male = $patients->where('gender', 'male')->count();
-                $female = $patients->where('gender', 'female')->count();
-                $healthy = $assessments->where('status', 'Healthy')->count();
-                $unhealthy = $assessments->where('status', 'Unhealthy')->count();
-                $unidentified = $assessments->where('status', null)->count();
+            $totalPatient = $patients->count();
+            $male = $patients->where('gender', 'male')->count();
+            $female = $patients->where('gender', 'female')->count();
+            $healthy = $assessments->where('status', 'Healthy')->count();
+            $unhealthy = $assessments->where('status', 'Unhealthy')->count();
+            $unidentified = $assessments->where('status', null)->count();
             @endphp
 
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
@@ -306,7 +306,7 @@
                                 How are you feeling today?</h1>
                             <form action="{{ route('assessment.start') }}" method="POST">
                                 @csrf
-                                <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                <button type="submit" class="rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
                                     Take New Assessment
                                 </button>
                             </form>

@@ -24,15 +24,13 @@
                     <textarea id="notes" name="notes" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
                 </div>
 
-                <div class="flex items-center mt-auto">
-                    <div class="flex justify-between w-3/4 mx-auto">
-                        <button class="mb-10 max-md:mt-10 text-sm space-x-2 custom-button2 w-1/4">
-                            Go Back to Question
-                        </button>
-                        <button class="mb-10 max-md:mt-10 text-sm space-x-2 custom-button2 w-1/4">
-                            Submit
-                        </button>
-                    </div>
+                <div class="flex justify-between w-3/4 mx-auto absolute inset-x-0 bottom-0 mb-10">
+                    <button type="submit" name="submit_button" value="prev" class="w-1/4 rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                        Go Back to Question
+                    </button>
+                    <button type="submit" name="submit_button" value="next" class="w-1/4 rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>

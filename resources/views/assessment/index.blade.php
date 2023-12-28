@@ -1,35 +1,27 @@
 @extends('layouts.app')
 @section('content')
-@php
-use App\Models\Assessment;
-use Illuminate\Support\Facades\Auth;
-
-if (Auth::guard('web')->check()) {
-$assessments = Assessment::whereHas('patients', function ($query) {
-$query->where('patient_id', Auth::user()->id);
-})->paginate(10);
-}
-else if (Auth::guard('doctors')->check()) {
-$assessments = Assessment::whereHas('doctors', function ($query) {
-$query->where('doctor_id', Auth::guard('doctors')->user()->id);
-})->paginate(10);
-}
-else if (Auth::guard('admins')->check()) {
-$assessments = Assessment::paginate(10);
-}
-@endphp
 <div class="p-4 sm:ml-20">
     <div class="p-4">
         <div class="flex flex-col rounded-2xl p-5 max-md:h-screen h-[92vh] relative" style="background-color: white;">
             <div class="flex items-center justify-between mb-5">
                 <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Assessment History</h1>
+                @if(Auth::guard('web')->check())
                 <div class="flex space-x-2">
-                    <button class="text-sm custom-button2">
-                        <a href="/assessment/question" target="_blank">
-                            Take New Assessment
-                        </a>
-                    </button>
+                    <form action="{{ route('assessment.start') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            @php
+                            if ($takenAssessment){
+                                echo 'Continue Assessment';
+                            }
+                            else {
+                                echo 'Take New Assessment';
+                            }
+                            @endphp
+                        </button>
+                    </form>
                 </div>
+                @endif
             </div>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
@@ -86,7 +78,7 @@ $assessments = Assessment::paginate(10);
                                 {{ \Carbon\Carbon::parse($assessment->datetime)->format('H:i:s') }}
                             </td>
                             <td class="px-6 py-2 font-medium text-gray-700 whitespace-nowrap">
-                                {{ $assessment->status ?? 'Waiting' }}
+                                {{ $assessment->status ?? 'Unidentified' }}
                             </td>
                             <td class="px-6 py-2 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $assessment->is_verified ? 'Verified' : 'Not Verified' }}

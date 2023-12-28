@@ -20,6 +20,7 @@ class AssessmentFactory extends Factory
             'datetime' => $this->faker->date('Y-m-d H:i:s'),
             'status' => $status = $this->faker->randomElement(['Healthy', 'Unhealthy', null]),
             'is_verified' => $status !== null ? 1 : 0,
+            'is_finished' => 1,
             'notes' => $this->faker->paragraph(),
             'admin_id' => null,
         ];

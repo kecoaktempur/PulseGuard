@@ -12,7 +12,9 @@
 </head>
 
 <body class="bg-gray-100">
-    @include('layouts.navbar')
+    @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
+        @include('layouts.navbar')
+    @endif
     @yield('content')
 </body>
 

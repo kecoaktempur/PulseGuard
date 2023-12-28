@@ -13,32 +13,34 @@
                 <h2 class="mt-10 text-center text-5xl leading-9 tracking-tight text-black">Welcome to
                     <span class="text-red-600 font-bold ">Pulse Guard</span>
                 </h2>
-                <h2 class="mt-2 text-md max-md:text-center leading-9 tracking-tight text-gray-500">Please login to
-                    your
-                    account
+                <h2 class="mt-2 text-md max-md:text-center leading-9 tracking-tight text-gray-500">Please login to your account
                 </h2>
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form class="space-y-6" action="#" method="POST">
+                <form class="space-y-6" action="{{ route('login') }}" method="POST">
+                    @csrf
                     <div>
-                        <!-- <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
-                                address</label> -->
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" required placeholder="Email" class="p-5 bg-gray-100 w-full rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 
-                                           focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                            <input id="email" name="email" type="email" autocomplete="email" required placeholder="Email" class="p-5 bg-gray-100 w-full rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                            @if($errors->has('email'))
+                            <div class="text-red-500 text-sm mt-1">
+                                {{ $errors->first('email') }}
+                            </div>
+                            @endif
                         </div>
                     </div>
 
-
                     <div>
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" required placeholder="Password" class="p-5 bg-gray-100 w-full rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 
-                                           focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                            <input id="password" name="password" type="password" autocomplete="password" required placeholder="Password" class="p-5 bg-gray-100 w-full rounded-md py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                            @if($errors->has('password'))
+                            <div class="text-red-500 text-sm mt-1">
+                                {{ $errors->first('password') }}
+                            </div>
+                            @endif
                         </div>
                         <div class="flex items-end mt-2">
-                            <!-- <label for="password"
-                                    class="block text-sm font-medium leading-6 text-gray-900">Password</label> -->
                             <div class="text-sm ml-auto">
                                 Don't have an account ?
                                 <a href="/register" class="font-semibold text-indigo-600 hover:text-indigo-500">register

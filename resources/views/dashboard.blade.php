@@ -2,14 +2,15 @@
 @section('content')
 <div class="p-4 sm:ml-20">
     <div class="p-4">
+        @if (Auth::guard('doctors')->check())
         <div class="grid md:grid-cols-[1fr,2fr] gap-4 mb-4">
             <div class="flex items-center justify-center md:h-full max-sm:h-64 rounded-2xl bg-white grid-cols-2">
                 <div class="flex items-center justify-center h-40 rounded bg-white m-5">
                     <div class="text-center my-4">
                         <img class="mx-auto w-36 h-36 p-1 rounded-full" src="{{ asset('img/Avatar Image.svg') }}" alt="Bordered avatar" style="border: 2px solid #070A52;">
                         <div class="py-2">
-                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello Doctor</h1>
-                            <p class="text-lg text-gray-500 font-bold">Doctor1@mail.com</p>
+                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello, {{ Auth::guard('doctors')->user()->firstname }}</h1>
+                            <p class="text-lg text-gray-500 font-bold">{{ Auth::guard('doctors')->user()->email }}</p>
                         </div>
                     </div>
                 </div>
@@ -112,21 +113,23 @@
                 </div>
             </div>
         </div>
+        @endif
 
+        @if (Auth::guard('admins')->check())
         <div class="grid md:grid-cols-[1fr,2fr] gap-4 mb-4">
             <div class="flex items-center justify-center md:h-full max-sm:h-64 rounded-2xl bg-white grid-cols-2">
                 <div class="flex items-center justify-center h-40 rounded bg-white m-5">
                     <div class="text-center my-4">
                         <img class="mx-auto w-36 h-36 p-1 rounded-full" src="{{ asset('img/Avatar Image1.svg') }}" alt="Bordered avatar" style="border: 2px solid #070A52;">
                         <div class="py-2">
-                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello Admin</h1>
-                            <p class="text-lg text-gray-500 font-bold">admin@mail.com</p>
+                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello, {{ Auth::guard('admins')->user()->firstname }}</h1>
+                            <p class="text-lg text-gray-500 font-bold">{{ Auth::guard('admins')->user()->email }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-center h-40 rounded bg-white m-5">
-                    <h1 class="text-lg font-bold text-center" style="color: #070A52;">You are now loged in as Admin
+                    <h1 class="text-lg font-bold text-center" style="color: #070A52;">You are now logged in as Admin
                         <br> <br> Wishing you a day filled with positive impact
                     </h1>
                     </p>
@@ -220,21 +223,23 @@
                 </div>
             </div>
         </div>
+        @endif
 
+        @if (Auth::guard('web')->check())
         <div class="grid md:grid-cols-[1fr,2fr] gap-4 mb-4">
             <div class="flex items-center justify-center md:h-full max-sm:h-64 rounded-2xl bg-white grid-cols-2">
                 <div class="flex items-center justify-center h-40 rounded bg-white m-5">
                     <div class="text-center my-4">
                         <img class="mx-auto w-36 h-36 p-1 rounded-full" src="{{ asset('img/Avatar Image2.svg') }}" alt="Bordered avatar" style="border: 2px solid #070A52;">
                         <div class="py-2">
-                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello Patient</h1>
-                            <p class="text-lg text-gray-500 font-bold">patient1@mail.com</p>
+                            <h1 class="text-lg font-bold" style="color: #070A52;">Hello, {{ Auth::user()->firstname }}</h1>
+                            <p class="text-lg text-gray-500 font-bold">{{ Auth::user()->email }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex items-center justify-center h-40 rounded bg-white m-5">
-                    <h1 class="text-lg font-bold text-center" style="color: #070A52;">You are now loged in as
+                    <h1 class="text-lg font-bold text-center" style="color: #070A52;">You are now logged in as
                         Patient
                         <br> <br>Your health and well-being are our top priorities
                     </h1>
@@ -264,6 +269,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         <div class="flex flex-col mt-16 rounded-2xl p-5" style="background-color: white;">
             <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Appoinment</h1>

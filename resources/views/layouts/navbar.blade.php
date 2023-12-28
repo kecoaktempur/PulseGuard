@@ -17,7 +17,7 @@
 
         <a href="/dashboard" class="flex items-center mb-5">
             <img src="{{ asset('img/Main Logo.svg') }}" class="h-6 me-5 sm:h-7" alt="Flowbite Logo" />
-            <img src="{{ asset('img/Main Logo 2.svg') }}" class="sm:h-8" alt="Flowbite Logo" />
+            <img src="{{ asset('img/Main Logo 2.svg') }}" class="sm:h-8 sm:hidden" alt="Flowbite Logo" id="textSidebarMini" />
         </a>
 
         <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="bg-transparent rounded-lg text-sm p-1.5 absolute top-2.5 end-2.5 inline-flex items-center hover:bg-red-600 group sm:hidden" id="closeSidebarBtn">

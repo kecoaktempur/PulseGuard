@@ -153,9 +153,4 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-
-    public function dashboard()
-    {
-        return view('dashboard');
-    }
 }

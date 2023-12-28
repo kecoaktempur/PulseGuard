@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('appointment_id')->references('id')->on('appointments')->onDelete('cascade')->constrained();
             $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade')->constrained();
-            $table->timestamps();
         });
     }
 

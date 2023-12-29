@@ -17,10 +17,10 @@
             <a href="login" class="login-button">Sign In</a>
         </div>
         <div class="showcase-content">
-            <h1>Predict & Prevent</h1>
+            <h1>Consult & Prevent</h1>
             <p>Welcome to a new era of proactive healthcare at PulseGuard! Our innovative website is designed to empower
-                you with the tools to predict and prevent health concerns before they become major issues.</p>
-            <a href="#" class="start-button">Read More</a>
+                you with the tools to consult and prevent health concerns before they become major issues.</p>
+            <a href="login" class="start-button">Consult Yourself Now</a>
         </div>
     </header>
     <section class="tabs">
@@ -68,7 +68,7 @@
                         Our secure and user-friendly platform ensures a seamless experience, allowing you to discuss
                         your health concerns without the need for travel.
                     </p>
-                    <a href="#" class="consule-button">Consult Yourself Now</a>
+                    <a href="login" class="consule-button">Consult Yourself Now</a>
                 </div>
                 <div class="tab-2-content-bottom">
                     <div>

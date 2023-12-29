@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppointmentDoctor;
 use App\Models\AssessmentDoctor;
 use App\Models\AssessmentQuestion;
 use App\Models\PatientAssessment;
 use App\Models\Assessment;
+use App\Models\Appointment;
 use App\Models\Question;
 use App\Models\Doctor;
+use App\Models\PatientAppointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -163,6 +166,21 @@ class AssessmentController extends Controller
             
             AssessmentDoctor::create([
                 'assessment_id' => $assessment->id,
+                'doctor_id' => $request->doctor
+            ]);
+
+            $appointment = Appointment::create([
+                'datetime' => $request->datetime,
+                'status' => 'waiting'
+            ]);
+
+            PatientAppointment::create([
+                'patient_id' => Auth::guard('web')->user()->id,
+                'appointment_id' => $appointment->id
+            ]);
+
+            AppointmentDoctor::create([
+                'appointment_id' => $appointment->id,
                 'doctor_id' => $request->doctor
             ]);
         }

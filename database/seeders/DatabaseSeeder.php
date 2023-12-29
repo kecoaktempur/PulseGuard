@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Assessment;
+use App\Models\Appointment;
 use App\Models\Patient;
 use App\Models\Doctor;
 use App\Models\Question;
@@ -29,16 +30,16 @@ class DatabaseSeeder extends Seeder
             ['description' => 'Seberapa sering anda merasakan sakit atau ketidaknyamanan di lengan kiri, rahang, leher, atau punggung atas?', 'type' => 'scale', 'admin_id' => null],
             ['description' => 'Apakah anda memiliki riwayat keluarga dengan penyakit jantung?', 'type' => 'boolean', 'admin_id' => null],
             ['description' => 'Apakah Anda mengalami pembengkakan di kaki, pergelangan kaki, atau daerah lainnya?', 'type' => 'boolean', 'admin_id' => null],
-            ['description' => 'Apakah tekanan darah Anda cenderung tinggi?', 'type' => 'scale', 'admin_id' => null],
+            ['description' => 'Apakah tekanan darah Anda cenderung tinggi? (Choice 1 : 60 -90 mmHg, Choice 2 : 90-119 mmHg, Choice 3 : 120-139 mmHg, Choice 4 : 140-159 mmHg, Choice 5 : 160 mmHg atau lebih)', 'type' => 'scale', 'admin_id' => null],
             ['description' => 'Apakah sesak napas dan kesulitan bernapas tersebut terjadi hanya saat beraktivitas fisik atau bahkan saat istirahat?', 'type' => 'boolean', 'admin_id' => null],
             ['description' => 'Apakah lelah yang Anda rasakan terkait dengan aktivitas tertentu atau muncul tanpa sebab yang jelas?', 'type' => 'boolean', 'admin_id' => null],
             ['description' => 'Apakah Anda biasanya mengalami keringat dingin atau pusing bersamaan dengan gejala lainnya atau secara terpisah?', 'type' => 'boolean', 'admin_id' => null],
-            ['description' => 'Jika Anda merasakan sakit atau ketidaknyamanan di lengan kiri, rahang, leher, atau punggung atas, seberapa intens gejala tersebut?', 'type' => 'scale', 'admin_id' => null],
+            ['description' => 'Jika Anda merasakan sakit atau ketidaknyamanan di lengan kiri, rahang, leher, atau punggung atas, seberapa intens gejala tersebut? (Choice 1 : sesekali atau beberapa kali dalam setahun. Choice 2 : tidak terjadi setiap waktu atau setiap minggu, tetapi cukup sering untuk diperhatikan. Choice 3 : Rasa sakit muncul secara rutin, terjadi beberapa kali dalam sebulan. Choice 4 : Rasa sakit terjadi hampir setiap minggu atau lebih sering dan mempengaruhi aktivitas sehari-hari. Choice 5 : Rasa sakit terjadi setiap saat atau hampir setiap hari dan sangat mengganggu aktivitas sehari-hari.)', 'type' => 'scale', 'admin_id' => null],
             ['description' => 'Apakah Anda memantau tekanan darah Anda secara teratur? ', 'type' => 'boolean', 'admin_id' => null],
         ]);
 
-        Assessment::factory(20)->create();
-        for ($i = 1; $i <= 20; $i++) {
+        Assessment::factory(50)->create();
+        for ($i = 1; $i <= 50; $i++) {
             DB::table('patient_assessment')->insert(['patient_id' => mt_rand(1, 20), 'assessment_id' => $i]);
             DB::table('assessment_doctor')->insert(['assessment_id' => $i, 'doctor_id' => mt_rand(1, 15)]);
             $questions = Question::all();
@@ -50,6 +51,12 @@ class DatabaseSeeder extends Seeder
                     'answer' => ($type == "boolean") ? mt_rand(0, 1) : mt_rand(1, 5),
                 ]);
             }
+        }
+
+        Appointment::factory(50)->create();
+        for ($i = 1; $i <= 50; $i++) {
+            DB::table('patient_appointment')->insert(['patient_id' => mt_rand(1, 20), 'appointment_id' => $i]);
+            DB::table('appointment_doctor')->insert(['appointment_id' => $i, 'doctor_id' => mt_rand(1, 15)]);
         }
     }
 }

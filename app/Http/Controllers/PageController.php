@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Assessment;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -20,7 +21,11 @@ class PageController extends Controller
                 $query->where('patient_id', Auth::user()->id);
             })->first();
 
-            return view('dashboard', compact('lastAssessment', 'takenAssessment'));
+            $appointments = Appointment::whereIn('status', ['waiting', 'accepted'])->where('datetime', '>', now()->addHours(7))->whereHas('patients', function ($query) {
+                $query->where('patient_id', Auth::user()->id);
+            })->paginate(10);
+
+            return view('dashboard', compact('lastAssessment', 'takenAssessment', 'appointments'));
         } else if (Auth::guard('doctors')->check()) {
             $patients = Patient::whereHas('assessments', function ($query) {
                 $query->where('is_finished', 1)
@@ -39,8 +44,12 @@ class PageController extends Controller
                 ->orderBy('assessments.id', 'desc')
                 ->get()
                 ->unique('patient_id');
+            
+            $appointments = Appointment::where('status', 'accepted')->where('datetime', '>', now()->addHours(7))->whereHas('doctors', function ($query) {
+                $query->where('doctor_id', Auth::guard('doctors')->user()->id);
+            })->paginate(10);
 
-            return view('dashboard', compact('assessments', 'patients'));
+            return view('dashboard', compact('assessments', 'patients', 'appointments'));
         } else {
             $patients = Patient::all();
             $assessments = Assessment::join('patient_assessment', 'assessments.id', '=', 'patient_assessment.assessment_id')
@@ -50,9 +59,9 @@ class PageController extends Controller
                 ->orderBy('assessments.id', 'desc')
                 ->get()
                 ->unique('patient_id');
+            $appointments = Appointment::where('datetime', '>', now()->addHours(7))->paginate(10);
 
-
-            return view('dashboard', compact('assessments', 'patients'));
+            return view('dashboard', compact('assessments', 'patients', 'appointments'));
         }
     }
 

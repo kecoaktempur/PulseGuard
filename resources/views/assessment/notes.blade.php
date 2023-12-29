@@ -22,6 +22,9 @@
 
                     <h1 class="text-xl font-bold mt-10 mb-2" style="color: #070A52;">Your message</h1>
                     <textarea id="notes" name="notes" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
+
+                    <h1 class="text-xl font-bold mt-10 mb-2" style="color: #070A52;">Request for appointment</h1>
+                    <input type="datetime-local" id="datetime" name="datetime" class="p-2 w-full bg-gray-100 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-l-md shadow-sm">
                 </div>
 
                 <div class="flex justify-between w-3/4 mx-auto absolute inset-x-0 bottom-0 mb-10">

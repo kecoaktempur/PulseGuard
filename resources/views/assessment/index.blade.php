@@ -3,7 +3,7 @@
 <div class="p-4 sm:ml-20">
     <div class="p-4">
         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-            <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <div class="relative w-auto mx-auto max-w-8xl">
                 <!--content-->
                 <form action="{{ route('assessment.verify') }}" method="POST">
                     @csrf
@@ -16,7 +16,7 @@
                         </div>
                         <!--body-->
                         <div class="relative p-6 flex-auto">
-                            <div class="relative overflow-x-auto sm:rounded-lg w-full sm:px-3">
+                            <div class="relative overflow-x-auto overflow-y-auto sm:rounded-lg w-full sm:px-3 max-h-[30vh]">
                                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
                                     <thead class="text-xs uppercase border-b border-gray-700" style="color: #070A52;">
                                         <tr>
@@ -92,7 +92,7 @@
         <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
 
         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id2">
-            <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <div class="relative w-auto my-6 mx-auto max-w-8xl">
                 <!--content-->
                 <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                     <!--header-->
@@ -103,7 +103,7 @@
                     </div>
                     <!--body-->
                     <div class="relative p-6 flex-auto">
-                        <div class="relative overflow-x-auto sm:rounded-lg w-full sm:px-3">
+                        <div class="relative overflow-x-auto overflow-y-auto sm:rounded-lg w-full sm:px-3 max-h-[30vh]">
                             <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
                                 <thead class="text-xs uppercase border-b border-gray-700" style="color: #070A52;">
                                     <tr>

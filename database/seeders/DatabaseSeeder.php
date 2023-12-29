@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Assessment;
 use App\Models\Appointment;
+use App\Models\AssessmentDoctor;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\PatientAssessment;
 use App\Models\Question;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -38,8 +40,8 @@ class DatabaseSeeder extends Seeder
             ['description' => 'Apakah Anda memantau tekanan darah Anda secara teratur? ', 'type' => 'boolean', 'admin_id' => null],
         ]);
 
-        Assessment::factory(50)->create();
-        for ($i = 1; $i <= 50; $i++) {
+        Assessment::factory(100)->create();
+        for ($i = 1; $i <= 100; $i++) {
             DB::table('patient_assessment')->insert(['patient_id' => mt_rand(1, 20), 'assessment_id' => $i]);
             DB::table('assessment_doctor')->insert(['assessment_id' => $i, 'doctor_id' => mt_rand(1, 15)]);
             $questions = Question::all();
@@ -53,10 +55,12 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        Appointment::factory(50)->create();
-        for ($i = 1; $i <= 50; $i++) {
-            DB::table('patient_appointment')->insert(['patient_id' => mt_rand(1, 20), 'appointment_id' => $i]);
-            DB::table('appointment_doctor')->insert(['appointment_id' => $i, 'doctor_id' => mt_rand(1, 15)]);
+        Appointment::factory(100)->create();
+        for ($i = 1; $i <= 100; $i++) {
+            $patient = PatientAssessment::findOrFail($i);
+            $doctor = AssessmentDoctor::findOrFail($i);
+            DB::table('patient_appointment')->insert(['patient_id' => $patient->patient_id, 'appointment_id' => $i]);
+            DB::table('appointment_doctor')->insert(['appointment_id' => $i, 'doctor_id' => $doctor->doctor_id]);
         }
     }
 }

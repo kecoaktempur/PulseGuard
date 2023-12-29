@@ -325,7 +325,7 @@
         @endif
 
         <div class="flex flex-col mt-16 rounded-2xl p-5" style="background-color: white;">
-            <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Incoming Appoinments</h1>
+            <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Upcoming Appointments</h1>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
                 <table class="w-full table-auto text-sm text-left rtl:text-right text-gray-500 overflow:hidden">
                     <thead class="text-xs uppercase border-b border-gray-700" style="color: #070A52;">

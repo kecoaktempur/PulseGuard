@@ -34,9 +34,11 @@ Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard'
 
 Route::get('/doctor', [DoctorController::class, 'index'])->name('doctor')->middleware('auth');
 Route::get('/doctor/{id}', [DoctorController::class, 'show'])->name('doctor.show')->middleware('auth');
+Route::put('/doctor/{id}', [DoctorController::class, 'update'])->name('doctor.update')->middleware(['auth', 'adminOnly']);
 
 Route::get('/patient', [PatientController::class, 'index'])->name('patient')->middleware(['auth', 'adminOrDoctor']);
 Route::get('/patient/{id}', [PatientController::class, 'show'])->name('patient.show')->middleware(['auth', 'adminOrDoctor']);
+Route::put('/patient/{id}', [PatientController::class, 'update'])->name('patient.update')->middleware(['auth', 'adminOnly']);
 
 Route::get('/assessment', [AssessmentController::class, 'index'])->name('assessment')->middleware('auth');
 Route::post('/assessment', [AssessmentController::class, 'start'])->name('assessment.start')->middleware('auth');

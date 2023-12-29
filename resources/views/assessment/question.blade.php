@@ -4,7 +4,7 @@
     <div class="p-4">
         <div class="flex flex-col rounded-2xl p-5 h-[90vh] max-md:h-screen relative" style="background-color: white;">
             <h1 class="text-2xl font-bold mt-5 mb-10 text-center" style="color: #070A52;">Question {{ $question->id }}</h1>
-            <p class="text-xl m-10 text-center">{{ $question->description }}</p>
+            <p class="text-xl m-10 text-center">@php echo $question->description @endphp</p>
 
             <form action="{{ route('assessment.answer', ['id' => $question->id]) }}" method="POST">
                 @csrf
@@ -87,7 +87,7 @@
                                     False
                                 </label>
                             </div>
-                            <div class="flex items-center flex-col me-8 max-md:me-2 relative">
+                            <div class="flex items-center flex-col relative">
                                 <input id="red" name="answer" type="radio" value="1" class="before:content[''] peer relative w-16 h-16 max-md:w-10 max-md:h-10 cursor-pointer appearance-none rounded-full border border-gray-500 text-red-600 transition-all before:absolute before:top-1/2 before:left-1/2 before:transform before:-translate-y-1/2 before:-translate-x-1/2 before:block before:h-12 before:w-12 before:rounded-full before:bg-gray-500 before:opacity-0 before:transition-opacity checked:border-red-500 checked:before:bg-red-500 hover:before:opacity-20" />
                                 <span class="absolute text-red-500 transition-opacity opacity-0 pointer-events-none top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 peer-checked:opacity-100">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 max-md:w-10 max-md:h-10">

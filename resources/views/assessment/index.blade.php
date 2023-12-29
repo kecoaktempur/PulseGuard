@@ -3,7 +3,7 @@
 <div class="p-4 sm:ml-20">
     <div class="p-4">
         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id">
-            <div class="relative w-auto mx-auto max-w-8xl">
+            <div class="relative w-[90vh] mx-auto">
                 <!--content-->
                 <form action="{{ route('assessment.verify') }}" method="POST">
                     @csrf
@@ -92,7 +92,7 @@
         <div class="hidden opacity-25 fixed inset-0 z-40 bg-black" id="modal-id-backdrop"></div>
 
         <div class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center" id="modal-id2">
-            <div class="relative w-auto my-6 mx-auto max-w-8xl">
+            <div class="relative w-[90vh] my-6 mx-auto">
                 <!--content-->
                 <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                     <!--header-->

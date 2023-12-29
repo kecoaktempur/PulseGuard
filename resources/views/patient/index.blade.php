@@ -29,6 +29,9 @@
                             <th scope="col" class="px-6 py-3 font-extrabold">
                                 Age
                             </th>
+                            <th scope="col" class="px-6 py-3 font-extrabold">
+                                Detail
+                            </th>
                         </tr>
                     </thead>
                     @php
@@ -43,44 +46,41 @@
                         @endphp
 
                         <tr class="{{ $isOdd ? 'bg-gray-100' : '' }}">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <th scope="row" class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $count++ }}
                             </th>
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <th scope="row" class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $patient->firstname }} {{ $patient->lastname }}
                             </th>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $patient->email }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $patient->address }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $patient->phone }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ ucfirst($patient->gender) }}
                             </td>
-                            <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
                                 {{ $patient->age }}
+                            </td>
+                            <td class="px-4 py-4 font-medium text-gray-700 whitespace-nowrap">
+                                <a href="{{ route('patient.show', ['id' => $patient->id]) }}">
+                                    <button class="rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                                        Detail
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="absolute bottom-0 right-0 mb-4 mr-4">
+            <div class="flex flex-col-reverse justify-end items-end bottom-0 right-0 mt-4 mb-4 mr-4">
                 <div class="inline-flex rounded-md">
-                    <!-- <button onclick="next()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-                        </svg>
-                    </button>
-                    <button onclick="prev()" class="px-4 py-2 text-sm font-medium text-stone-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-stone-900 focus:text-stone-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" data-slot="icon" class="w-4 h-4">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-                        </svg>
-                    </button> -->
                     {{ $patients->links() }}
                 </div>
             </div>

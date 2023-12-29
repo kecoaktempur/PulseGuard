@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Assessment;
 use App\Models\Patient;
+use App\Models\Question;
+use App\Models\AssessmentQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,5 +27,17 @@ class PatientController extends Controller
             })->paginate(10);
         }
         return view('patient.index', compact('patients'));
+    }
+
+    public function show($id)
+    {
+        $questions = Question::all();
+        $answers = AssessmentQuestion::all();
+        $patient = Patient::findOrFail($id);
+        $assessments = Assessment::where('is_finished', 1)->whereHas('patients', function ($query) use ($id) {
+            $query->where('patient_id', $id);
+        })->paginate(5);
+
+        return view('patient.show', compact('questions', 'answers', 'patient', 'assessments'));
     }
 }

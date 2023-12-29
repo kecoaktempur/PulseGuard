@@ -54,7 +54,9 @@
                             in</button>
                     </div>
                 </form>
-                <img class="mx-auto mt-10 lg:h-24 w-auto" src="{{ asset('img/logo1.svg') }}" alt="Your Company">
+                <a href="{{ route('landing') }}">
+                    <img class="mx-auto mt-10 lg:h-24 w-auto" src="{{ asset('img/logo1.svg') }}" alt="Your Company">
+                </a>
             </div>
         </div>
     </div>

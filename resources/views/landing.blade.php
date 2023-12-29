@@ -124,7 +124,7 @@
                             <td>Immediate Access to Care: Day or Night</td>
                         </tr>
                         <tr>
-                            <td>HD Available</td>
+                            <td>Predictive Insights: Stay Ahead of Health Trends</td>
                         </tr>
                         <tr>
                             <td>Virtual Consultations Anywhere, Anytime</td>

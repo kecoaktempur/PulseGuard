@@ -248,7 +248,7 @@
                             </th>
                             <td class="px-6 py-2 font-medium text-gray-700 whitespace-nowrap">
                                 <div class="flex space-x-2">
-                                    @if(Auth::guard('doctors')->check() && !$assessment->is_verified)
+                                    @if(Auth::guard('doctors')->check() || Auth::guard('admins')->check() && !$assessment->is_verified)
                                     <button class="rounded-md bg-indigo-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" type="button" onclick="toggleModal('modal-id', <?php echo $assessment->id; ?>)">
                                         Details
                                     </button>
@@ -257,6 +257,7 @@
                                         Details
                                     </button>
                                     @endif
+                                    @if(Auth::guard('admins')->check())
                                     <form action="{{ route('assessment.destroy') }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -265,6 +266,7 @@
                                             Delete
                                         </button>
                                     </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>

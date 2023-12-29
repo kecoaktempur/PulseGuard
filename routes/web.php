@@ -41,9 +41,15 @@ Route::get('/assessment/question/{id}', [AssessmentController::class, 'question'
 Route::post('/assessment/question/{id}', [AssessmentController::class, 'answer'])->name('assessment.answer')->middleware('auth');
 Route::get('/assessment/notes', [AssessmentController::class, 'notes'])->name('assessment.notes')->middleware('auth');
 Route::post('/assessment/notes', [AssessmentController::class, 'finish'])->name('assessment.finish')->middleware('auth');
+Route::delete('/assessment', [AssessmentController::class, 'destroy'])->name('assessment.destroy')->middleware('auth');
+Route::get('/assessment-answer', [AssessmentController::class, 'getAnswer'])->middleware('auth');
+Route::get('/assessment-notes', [AssessmentController::class, 'getNotes'])->middleware('auth');
+Route::post('/assessment-answer', [AssessmentController::class, 'verify'])->name('assessment.verify')->middleware('auth');
 
 Route::get('/question', [QuestionController::class, 'index'])->name('question')->middleware('auth');
-Route::get('/question/edit', [QuestionController::class, 'edit'])->name('question.edit')->middleware('auth');
+Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create')->middleware('auth');
+Route::post('/question', [QuestionController::class, 'store'])->name('question.store')->middleware('auth');
+Route::delete('/question', [QuestionController::class, 'destroy'])->name('question.destroy')->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');

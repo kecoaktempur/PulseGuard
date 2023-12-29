@@ -32,7 +32,7 @@
             </div>
             <div id="tab-2" class="tab-item">
                 <i class="fas fa-tablet-alt fa-3x"></i>
-                <p class="hide-sm">Watch anywhere</p>
+                <p class="hide-sm">Consultation Anywhere Can Be</p>
             </div>
             <div id="tab-3" class="tab-item">
                 <i class="fas fa-tags fa-3x"></i>

@@ -102,7 +102,7 @@
                                 {{ $appointment->doctors->first()->firstname }} {{ $appointment->doctors->first()->lastname }}
                             </td>
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                {{ $appointment->patients->first()->firstname }} {{ $appointment->patients->first()->lastname }}{{$appointment->id}}
+                                {{ $appointment->patients->first()->firstname }} {{ $appointment->patients->first()->lastname }}
                             </td>
                             @if($appointment->status == 'waiting')
                             <td class="px-6 py-2 font-medium text-gray-700 whitespace-nowrap">

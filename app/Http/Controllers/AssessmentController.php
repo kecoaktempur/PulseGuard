@@ -15,6 +15,8 @@ class AssessmentController extends Controller
 {
     public function index()
     {
+        $questions = Question::all();
+        $answers = AssessmentQuestion::all();
         if (Auth::guard('web')->check()) {
             $assessments = Assessment::where('is_finished', 1)->whereHas('patients', function ($query) {
                 $query->where('patient_id', Auth::user()->id);
@@ -24,7 +26,7 @@ class AssessmentController extends Controller
                 $query->where('patient_id', Auth::user()->id);
             })->first();
 
-            return view('assessment.index', compact('assessments', 'takenAssessment'));
+            return view('assessment.index', compact('questions', 'answers', 'assessments', 'takenAssessment'));
         }
         else if (Auth::guard('doctors')->check()) {
             $assessments = Assessment::where('is_finished', 1)->whereHas('doctors', function ($query) {
@@ -35,7 +37,7 @@ class AssessmentController extends Controller
             $assessments = Assessment::where('is_finished', 1)->paginate(10);
         }
 
-        return view('assessment.index', compact('assessments'));
+        return view('assessment.index', compact('questions', 'answers', 'assessments'));
     }
 
     public function start()
@@ -164,6 +166,52 @@ class AssessmentController extends Controller
                 'doctor_id' => $request->doctor
             ]);
         }
+
+        return redirect('assessment');
+    }
+
+    public function destroy(Request $request)
+    {
+        Assessment::findOrFail($request->id)->delete();
+        return redirect('assessment');
+    }
+
+    public function getAnswer(Request $request)
+    {
+        $assessmentId = $request->input('assessment_id');
+        $questionId = $request->input('question_id');
+
+        $answer = AssessmentQuestion::where('assessment_id', $assessmentId)
+            ->where('question_id', $questionId)
+            ->value('answer');
+
+        return response()->json(['answer' => $answer]);
+    }
+
+    public function getNotes(Request $request)
+    {
+        $assessmentId = $request->input('assessment_id');
+
+        $notes = Assessment::where('id', $assessmentId)->value('notes');
+
+        return response()->json(['notes' => $notes]);
+    }
+
+    public function verify(Request $request)
+    {
+        $request->validate(
+            [
+                'status' => 'not_in:null'
+            ],
+            [
+                'status.not_in' => 'Status can\'t be empty!'
+            ]
+        );
+
+        Assessment::findOrFail($request->assessment_id)->update([
+            'status' => $request->status,
+            'is_verified' => 1
+        ]);
 
         return redirect('assessment');
     }

@@ -73,7 +73,7 @@
                             </td>
                             @elseif(Auth::guard('doctors')->check())
                             <td class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-                                {{ $appointment->patients->first()->firstname }} {{ $appointment->patients->first()->lastname }} 
+                                {{ $appointment->patients->first()->firstname }} {{ $appointment->patients->first()->lastname }}
                             </td>
                             @if($appointment->status == 'waiting')
                             <td class="px-6 py-2 font-medium text-gray-700 whitespace-nowrap">
@@ -82,7 +82,7 @@
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" id="id" name="id" value="{{ $appointment->id }}" />
-                                        <button type="submit" name="submit_button" value="accept" class="rounded-md bg-rose-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500">
+                                        <button type="submit" name="submit_button" value="accept" class="rounded-md bg-emerald-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-emerald-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                                             Accept
                                         </button>
                                         <button type="submit" name="submit_button" value="reject" class="rounded-md bg-rose-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500">

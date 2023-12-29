@@ -27,7 +27,7 @@
 
                 <div class="flex justify-between w-3/4 mx-auto absolute inset-x-0 bottom-0 mb-10">
                     <a href="{{ route('question') }}" class="w-1/4 rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
-                        <button class="flex justify-center w-full">
+                        <button type="button" class="flex justify-center w-full">
                             Cancel
                         </button>
                     </a>

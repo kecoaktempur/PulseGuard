@@ -32,7 +32,7 @@
             $female = $patients->where('gender', 'female')->count();
             $healthy = $assessments->where('status', 'Healthy')->count();
             $unhealthy = $assessments->where('status', 'Unhealthy')->count();
-            $unidentified = $assessments->where('status', null)->count();
+            $unidentified = $patients->count() - $healthy - $unhealthy;
             @endphp
 
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
@@ -151,7 +151,7 @@
             $female = $patients->where('gender', 'female')->count();
             $healthy = $assessments->where('status', 'Healthy')->count();
             $unhealthy = $assessments->where('status', 'Unhealthy')->count();
-            $unidentified = $assessments->where('status', null)->count();
+            $unidentified = $patients->count() - $healthy - $unhealthy;
             @endphp
 
             <div class="grid grid-cols-3 max-sm:grid-cols-2 gap-4">
@@ -307,7 +307,14 @@
                             <form action="{{ route('assessment.start') }}" method="POST">
                                 @csrf
                                 <button type="submit" class="rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
-                                    Take New Assessment
+                                    @php
+                                    if ($takenAssessment){
+                                    echo 'Continue Assessment';
+                                    }
+                                    else {
+                                    echo 'Take New Assessment';
+                                    }
+                                    @endphp
                                 </button>
                             </form>
                         </div>

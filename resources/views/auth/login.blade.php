@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="grid lg:grid-cols-2 md:grid-cols-1 gap-5 h-screen bg-white" style="background-color:  #070A52;">
+<div class="grid lg:grid-cols-2 md:grid-cols-1 h-screen bg-white" style="background-color: #070A52;">
     <!-- Left Column -->
     <div class="max-md:hidden flex items-center justify-center bg-transparent">
-        <img src="{{ asset('img/login page.svg') }}" class="h-96" alt="">
+        <img src="https://i.ytimg.com/vi/CXXshXcxDnA/maxresdefault.jpg" class="object-cover h-full w-full opacity-50" alt="">
     </div>
 
     <!-- Right Column -->

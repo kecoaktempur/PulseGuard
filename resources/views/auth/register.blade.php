@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="grid grid-cols-2 max-md:grid-cols-1 gap-5 h-screen bg-white" style="background-color:  #070A52;">
+<div class="grid grid-cols-2 max-md:grid-cols-1 h-screen bg-white" style="background-color:  #070A52;">
     <!-- Left Column -->
     <div class="max-md:hidden flex items-center justify-center bg-transparent">
-        <img src="{{ asset('img/register page.svg') }}" alt="">
+        <img src="https://granddafamsignature.com/surabaya/wp-content/uploads/2022/02/lobbynowatermark1.jpg" alt="" class="object-cover h-full w-full opacity-50">
     </div>
 
     <!-- Right Column -->

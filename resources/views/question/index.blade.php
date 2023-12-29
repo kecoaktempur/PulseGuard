@@ -6,11 +6,13 @@
             <div class="flex items-center justify-between mb-5">
                 <h1 class="text-2xl font-bold mb-2" style="color: #070A52;">Assessment Questions</h1>
                 <div class="flex space-x-2">
-                    <form action="{{ route('question.edit') }}" method="GET">
-                        <button type="submit" class="flex w-full justify-center rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
-                            Make New Assessment
+                    @if (Auth::guard('admins')->check())
+                    <a href="{{ route('question.create') }}">
+                        <button class="flex w-full justify-center rounded-md bg-blue-800 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                            Add New Question
                         </button>
-                    </form>
+                        @endif
+                    </a>
                 </div>
             </div>
             <div class="relative overflow-x-auto sm:rounded-lg w-full">
@@ -23,9 +25,11 @@
                             <th scope="col" class="px-6 py-3 font-extrabold">
                                 Description
                             </th>
+                            @if (Auth::guard('admins')->check())
                             <th scope="col" class="px-6 py-3 font-extrabold">
                                 Action
                             </th>
+                            @endif
                         </tr>
                     </thead>
 
@@ -46,11 +50,18 @@
                             <th scope="row" class="px-6 py-3 font-medium text-gray-700">
                                 {{ $question->description }}
                             </th>
-                            <td class="px-6 py-3 font-medium text-gray-700 whitespace-nowrap">
-                                <button class="rounded-md bg-rose-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500" type="button" onclick="toggleModal('modal-id')">
-                                    Delete
-                                </button>
-                            </td>
+                            @if (Auth::guard('admins')->check())
+                            <form action="{{ route('question.destroy') }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" id="id" name="id" value="{{ $question->id }}" />
+                                <th class="px-6 py-3 font-medium text-gray-700 whitespace-nowrap">
+                                    <button type="submit" class="rounded-md bg-rose-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500">
+                                        Delete
+                                    </button>
+                                </th>
+                            </form>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>

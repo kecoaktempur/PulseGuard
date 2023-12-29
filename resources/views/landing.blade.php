@@ -13,7 +13,7 @@
 <body>
     <header class="showcase">
         <div class="showcase-top">
-            <img src="img/logo2.svg" alt="" />
+            <img src="img/logo1.svg" alt="" />
             <a href="login" class="login-button">Sign In</a>
         </div>
         <div class="showcase-content">
@@ -32,11 +32,11 @@
             </div>
             <div id="tab-2" class="tab-item">
                 <i class="fas fa-tablet-alt fa-3x"></i>
-                <p class="hide-sm">Consultation Anywhere Can Be</p>
+                <p class="hide-sm">Anywhere Can Be</p>
             </div>
             <div id="tab-3" class="tab-item">
                 <i class="fas fa-tags fa-3x"></i>
-                <p class="hide-sm">Multi Platform</p>
+                <p class="hide-sm">24/7 Service</p>
             </div>
         </div>
     </section>
@@ -46,14 +46,19 @@
             <!-- Tab Content 1 -->
             <div id="tab-1-content" class="tab-content-item show">
                 <div class="tab-1-content-inner">
+                    <div class="img-place">
+                        <img class="image-one" src="https://myocardial.telekardiologi.com/img/about/3.png"
+                            alt="" />
+                        <img class="image-two" src="https://myocardial.telekardiologi.com/img/about/2.png"
+                            alt="" />
+                    </div>
                     <div>
                         <p class="text-lg">
-                            If you decide Netflix isn't for you - no problem. No commitment.
-                            Cancel online anytime.
+                            Beyond treating specific ailments, our expert doctors embrace a holistic approach to
+                            wellness.
                         </p>
-                        <a href="#" class="btn btn-lg">Watch Free For 30 Days</a>
+                        <a href="#" class="try-button">Try Now</a>
                     </div>
-                    <img src="https://i.ibb.co/J2xDJV7/tab-content-1.png" alt="" />
                 </div>
             </div>
 

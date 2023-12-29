@@ -17,7 +17,7 @@ class AppointmentFactory extends Factory
     public function definition(): array
     {
         return [
-            'datetime' => $this->faker->date('Y-m-d H:i:s'),
+            'datetime' => $this->faker->dateTimeBetween('2024-01-01 00:00:00', '2024-12-31 23:59:59')->format('Y-m-d H:i:s'),
             'status' => $this->faker->randomElement(['waiting', 'rejected', 'accepted']),
             'admin_id' => null,
         ];

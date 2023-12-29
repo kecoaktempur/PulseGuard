@@ -57,7 +57,7 @@
                             Beyond treating specific ailments, our expert doctors embrace a holistic approach to
                             wellness.
                         </p>
-                        <a href="#" class="try-button">Try Now</a>
+                        <a href="login" class="try-button">Try Now</a>
                     </div>
                 </div>
             </div>
@@ -65,39 +65,42 @@
             <!-- Tab Content 2 -->
             <div id="tab-2-content" class="tab-content-item">
                 <div class="tab-2-content-top">
-                    <p class="text-lg">
-                        Watch TV shows and movies anytime, anywhere — personalized for
-                        you.
+                    <p style="font-size: 20px; width: 80%;" class="text-lg">
+                        Our secure and user-friendly platform ensures a seamless experience, allowing you to discuss
+                        your health concerns without the need for travel.
                     </p>
-                    <a href="#" class="btn btn-lg">Watch Free For 30 Days</a>
+                    <a href="#" class="consule-button">Consult Yourself Now</a>
                 </div>
                 <div class="tab-2-content-bottom">
                     <div>
                         <img src="https://i.ibb.co/DpdN7Gn/tab-content-2-1.png" alt="" />
                         <p class="text-md">
-                            Watch on your TV
+                            Consult Anywhere, Anytime: Your Health, Your Way!
                         </p>
                         <p class="text-dark">
-                            Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
-                            players and more.
+                            We're thrilled to offer you the freedom to schedule consultations wherever you want, at a
+                            time that suits your busy lifestyle.
+
+
                         </p>
                     </div>
                     <div>
                         <img src="https://i.ibb.co/R3r1SPX/tab-content-2-2.png" alt="" />
                         <p class="text-md">
-                            Watch instantly or download for later
+                            Flexible Scheduling: Your Time, Your Terms
                         </p>
                         <p class="text-dark">
-                            Available on phone and tablet, wherever you go.
+                            With our flexible scheduling options, you're in control.
                         </p>
                     </div>
                     <div>
                         <img src="https://i.ibb.co/gDhnwWn/tab-content-2-3.png" alt="" />
                         <p class="text-md">
-                            Use any computer
+                            Personalized Care, Wherever You Are
                         </p>
                         <p class="text-dark">
-                            Watch right on Netflix.com.
+                            Receive personalized and compassionate care from our expert medical professionals, no matter
+                            where you are.
                         </p>
                     </div>
                 </div>
